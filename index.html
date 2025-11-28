@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VyreVault Studios | Build It. Make It Real. Make It Better.</title>
+    <meta name="description" content="VyreVault Studios: Demonstrating what AI-augmented solo developers can achieve. From zero to production systems in 18 months.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="vyrevault-logo.webp">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0066FF 0%, #0099FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0066FF 0%, #0099FF 100%);
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.3);
+        }
+        
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        /* Animated gradient background */
+        .animated-bg {
+            background: linear-gradient(-45deg, #000000, #0A0A0A, #0D0D0D, #121212);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Glowing effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.5);
+        }
+
+        /* Pulse animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+    </style>
+</head>
+<body class="animated-bg text-white scroll-smooth">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-lg border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <img src="vyrevault-logo-big.webp" alt="VyreVault Studios" class="h-16 w-auto md:h-20" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div class="text-2xl font-bold gradient-text" style="display:none;">VyreVault Studios</div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                    <a href="#mission" class="hover:text-blue-400 transition">Mission</a>
+                    <a href="#platforms" class="hover:text-blue-400 transition">Platforms</a>
+                    <a href="#downloads" class="hover:text-blue-400 transition">Downloads</a>
+                    <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2">
+                <a href="#home" class="block py-2 hover:text-blue-400 transition">Home</a>
+                <a href="#mission" class="block py-2 hover:text-blue-400 transition">Mission</a>
+                <a href="#platforms" class="block py-2 hover:text-blue-400 transition">Platforms</a>
+                <a href="#downloads" class="block py-2 hover:text-blue-400 transition">Downloads</a>
+                <a href="#contact" class="block py-2 hover:text-blue-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6">
+        <div class="text-center max-w-5xl">
+            <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+                <span class="gradient-text block">Build It.</span>
+                <span class="gradient-text block">Make It Real.</span>
+                <span class="gradient-text block">Make It Better.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                Demonstrating what AI-augmented solo developers can achieve. 
+                From zero programming experience to production systems in 18 months.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#platforms" class="gradient-bg px-8 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transition glow">
+                    Explore Our Platforms
+                </a>
+                <a href="#downloads" class="border-2 border-blue-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-500/10 transition">
+                    View Downloads
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+                <div>
+                    <div class="text-4xl font-bold gradient-text">4+</div>
+                    <div class="text-gray-400 mt-2">Platforms Built</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">496×</div>
+                    <div class="text-gray-400 mt-2">Real-Time Performance</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">107</div>
+                    <div class="text-gray-400 mt-2">Tokens/Second</div>
+                </div>
+                <div>
+                    <div class="text-4xl font-bold gradient-text">18mo</div>
+                    <div class="text-gray-400 mt-2">Zero to Production</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 px-6 bg-black/40">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Dreams for the Dreamless</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Our mission is to democratize access to creative technology, proving that 
+                    extraordinary development velocity is achievable through AI augmentation.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 card-hover">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">The Vision</h3>
+                    <p class="text-gray-300">
+                        Transform impossible timelines into reality. What traditional studios build 
+                        in months, we build in days through systematic AI orchestration.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 card-hover">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-4">The Method</h3>
+                    <p class="text-gray-300">
+                        Coordinating multiple AI systems (Claude, Cursor, Warp, ChatGPT) to achieve 
+                        extraordinary velocity while maintaining production quality.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900/50 backdrop-blur-sm p-8 rounded-xl border border-gray-800 card-hover">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-2xl font-bold mb-4">The Proof</h3>
+                    <p class="text-gray-300">
+                        VyreVault Studios itself is the proof: a cryptographically-verifiable 
+                        demonstration of what one person + AI can accomplish.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platforms Section -->
+    <section id="platforms" class="py-20 px-6">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Our Platforms</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Each platform serves as a proof point, demonstrating different aspects 
+                    of AI-augmented development at scale.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- VyreAI -->
+                <div class="bg-gradient-to-br from-blue-900/20 to-cyan-900/20 backdrop-blur-sm p-8 rounded-xl border border-blue-500/30 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-3xl font-bold">VyreAI</h3>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                            Production Ready
+                        </span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Custom AI assistant system for Unreal Engine 5.7 with GPU-accelerated 
+                        inference achieving 107 tokens/second performance. Comprehensive asset 
+                        scanning, Python execution tools, and context enrichment systems.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            GPU-accelerated LLM inference
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Unreal Engine 5.7 integration
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Real-time code generation
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VORIX -->
+                <div class="bg-gradient-to-br from-cyan-900/20 to-blue-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-3xl font-bold">VORIX Voice Lab</h3>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                            Production Ready
+                        </span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Revolutionary text-to-speech system achieving 496× real-time performance 
+                        with 23ms synthesis times. Sophisticated voice cloning, DDS markup language 
+                        for prosody control, and multi-engine orchestration.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            23ms synthesis latency
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Voice cloning capabilities
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Outperforms ElevenLabs
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FlowSpace -->
+                <div class="bg-gradient-to-br from-cyan-900/20 to-teal-900/20 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-3xl font-bold">FLŌ (FlowSpace)</h3>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold pulse">
+                            In Development
+                        </span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Collaboration platform designed specifically for AI-augmented development 
+                        teams. Local-first architecture, P2P messaging, real-time synchronization, 
+                        and embedded AI companions with personality and memory.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Local-first architecture
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            P2P encrypted messaging
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Real-time collaboration
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A9N -->
+                <div class="bg-gradient-to-br from-teal-900/20 to-green-900/20 backdrop-blur-sm p-8 rounded-xl border border-teal-500/30 card-hover">
+                    <div class="flex items-start justify-between mb-4">
+                        <h3 class="text-3xl font-bold">A9N</h3>
+                        <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold pulse">
+                            In Development
+                        </span>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Workflow automation platform competing with n8n. Qt6 frontend with Rust 
+                        backend architecture, canvas rendering, node visualization, and Bezier 
+                        curve connections through precise AI collaboration.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Qt6 + Rust architecture
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Visual workflow builder
+                        </div>
+                        <div class="flex items-center text-sm text-gray-400">
+                            <svg class="w-5 h-5 mr-2 text-teal-400" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Enterprise automation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Projects -->
+            <div class="mt-12 grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-900/30 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+                    <h4 class="text-xl font-bold mb-2">ForgeCore</h4>
+                    <p class="text-gray-400 text-sm">Game development framework combining Unreal Engine with AI-driven workflows</p>
+                </div>
+                <div class="bg-gray-900/30 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+                    <h4 class="text-xl font-bold mb-2">VyreInference</h4>
+                    <p class="text-gray-400 text-sm">Multi-GPU AI workstation application for running multiple models simultaneously</p>
+                </div>
+                <div class="bg-gray-900/30 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+                    <h4 class="text-xl font-bold mb-2">CreativeOS</h4>
+                    <p class="text-gray-400 text-sm">Comprehensive creative workflow platform for writers and content creators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="py-20 px-6 bg-black/40">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Downloads</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Get early access to VyreVault platforms. Currently in active development.
+                </p>
+            </div>
+            
+            <div class="space-y-6">
+                <!-- VyreAI -->
+                <div class="bg-gradient-to-r from-purple-900/20 to-transparent backdrop-blur-sm p-8 rounded-xl border border-purple-500/30">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="mb-6 md:mb-0 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-3xl font-bold">VyreAI</h3>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                                    v1.0.0
+                                </span>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Custom AI assistant system for Unreal Engine 5.7 with GPU-accelerated inference. 
+                                Includes comprehensive asset scanning, Python execution tools, and context enrichment.
+                            </p>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                                <span>📦 Size: ~523 MB</span>
+                                <span>💻 Platform: Windows 10/11</span>
+                                <span>🎯 Requirements: NVIDIA GPU (6GB+ VRAM)</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="gradient-bg px-6 py-3 rounded-lg text-center font-semibold hover:opacity-90 transition glow whitespace-nowrap">
+                                Coming Soon
+                            </a>
+                            <a href="#platforms" class="border border-purple-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-purple-500/10 transition whitespace-nowrap">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VORIX -->
+                <div class="bg-gradient-to-r from-blue-900/20 to-transparent backdrop-blur-sm p-8 rounded-xl border border-blue-500/30">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="mb-6 md:mb-0 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-3xl font-bold">VORIX Voice Lab</h3>
+                                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm font-semibold">
+                                    v2.1.0
+                                </span>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Revolutionary text-to-speech system achieving 496× real-time performance. 
+                                Voice cloning, DDS markup language, and multi-engine orchestration.
+                            </p>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                                <span>📦 Size: ~245 MB</span>
+                                <span>💻 Platform: Windows 10/11</span>
+                                <span>🎯 Requirements: 8GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="gradient-bg px-6 py-3 rounded-lg text-center font-semibold hover:opacity-90 transition glow whitespace-nowrap">
+                                Coming Soon
+                            </a>
+                            <a href="#platforms" class="border border-blue-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-blue-500/10 transition whitespace-nowrap">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FlowSpace -->
+                <div class="bg-gradient-to-r from-cyan-900/20 to-transparent backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="mb-6 md:mb-0 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-3xl font-bold">FLŌ (FlowSpace)</h3>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
+                                    In Development
+                                </span>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Collaboration platform for AI-augmented teams. Local-first architecture, 
+                                P2P messaging, real-time synchronization.
+                            </p>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                                <span>📦 Size: ~180 MB</span>
+                                <span>💻 Platform: Windows 10/11</span>
+                                <span>🎯 Requirements: 4GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="border border-cyan-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-cyan-500/10 transition whitespace-nowrap opacity-50 cursor-not-allowed">
+                                In Development
+                            </a>
+                            <a href="#platforms" class="border border-cyan-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-cyan-500/10 transition whitespace-nowrap">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A9N -->
+                <div class="bg-gradient-to-r from-teal-900/20 to-transparent backdrop-blur-sm p-8 rounded-xl border border-teal-500/30">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="mb-6 md:mb-0 flex-1">
+                            <div class="flex items-center gap-3 mb-3">
+                                <h3 class="text-3xl font-bold">A9N</h3>
+                                <span class="px-3 py-1 bg-yellow-500/20 text-yellow-400 rounded-full text-sm font-semibold">
+                                    In Development
+                                </span>
+                            </div>
+                            <p class="text-gray-300 mb-4">
+                                Workflow automation platform with Qt6 frontend and Rust backend. 
+                                Visual workflow builder for enterprise automation.
+                            </p>
+                            <div class="flex flex-wrap gap-4 text-sm text-gray-400">
+                                <span>📦 Size: ~320 MB</span>
+                                <span>💻 Platform: Windows 10/11</span>
+                                <span>🎯 Requirements: 8GB RAM</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <a href="#" class="border border-teal-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-teal-500/10 transition whitespace-nowrap opacity-50 cursor-not-allowed">
+                                In Development
+                            </a>
+                            <a href="#platforms" class="border border-teal-500 px-6 py-3 rounded-lg text-center font-semibold hover:bg-teal-500/10 transition whitespace-nowrap">
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Early Access Notice -->
+            <div class="mt-12 bg-gradient-to-r from-purple-500/10 to-blue-500/10 backdrop-blur-sm p-8 rounded-xl border border-purple-500/30">
+                <div class="flex items-start gap-4">
+                    <div class="text-4xl">🚀</div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-3">Early Access Program</h3>
+                        <p class="text-gray-300 mb-4">
+                            Want early access to VyreVault platforms? We're building in public and will 
+                            release download links as platforms reach stable milestones. Stay updated by 
+                            reaching out via the contact form below.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#contact" class="gradient-bg px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">
+                                Request Early Access
+                            </a>
+                            <a href="https://github.com/yourusername" target="_blank" class="border border-purple-500 px-6 py-3 rounded-lg font-semibold hover:bg-purple-500/10 transition">
+                                Follow Development on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats/Timeline Section -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">The Journey</h2>
+                <p class="text-xl text-gray-300">18 months from zero programming experience to production systems</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-400 mb-1">Month 0</div>
+                        <div class="font-semibold">Discovery: First interaction with ChatGPT</div>
+                    </div>
+                    <div class="text-purple-400 text-2xl font-bold">→</div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-400 mb-1">Month 3</div>
+                        <div class="font-semibold">Three complete science fiction novels written</div>
+                    </div>
+                    <div class="text-purple-400 text-2xl font-bold">→</div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-400 mb-1">Month 6</div>
+                        <div class="font-semibold">First TTS system built (VORIX Voice Lab origins)</div>
+                    </div>
+                    <div class="text-purple-400 text-2xl font-bold">→</div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-400 mb-1">Month 12</div>
+                        <div class="font-semibold">CreativeOS launched, AI orchestration methodology refined</div>
+                    </div>
+                    <div class="text-purple-400 text-2xl font-bold">→</div>
+                </div>
+
+                <div class="bg-gray-900/50 backdrop-blur-sm p-6 rounded-xl border border-gray-800 flex items-center justify-between">
+                    <div>
+                        <div class="text-sm text-gray-400 mb-1">Month 18</div>
+                        <div class="font-semibold">VyreVault Studios established with 4+ production platforms</div>
+                    </div>
+                    <div class="text-green-400 text-2xl font-bold">✓</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 bg-black/40">
+        <div class="container mx-auto max-w-2xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-300">
+                    Interested in the methodology? Want to collaborate? Reach out.
+                </p>
+            </div>
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                        placeholder="Your name"
+                    >
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                        placeholder="your@email.com"
+                    >
+                </div>
+                
+                <div>
+                    <label for="subject" class="block text-sm font-medium mb-2">Subject</label>
+                    <select 
+                        id="subject" 
+                        name="subject" 
+                        required
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition"
+                    >
+                        <option value="">Select a subject</option>
+                        <option value="methodology">Learn About the Methodology</option>
+                        <option value="collaboration">Collaboration Opportunity</option>
+                        <option value="demo">Request Platform Demo</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        rows="6" 
+                        required
+                        class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition resize-none"
+                        placeholder="Tell us about your interest..."
+                    ></textarea>
+                </div>
+                
+                <button 
+                    type="submit" 
+                    class="w-full gradient-bg px-8 py-4 rounded-lg text-lg font-semibold hover:opacity-90 transition glow"
+                >
+                    Send Message
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 border-t border-gray-800 bg-black/60">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="vyrevault-logo.webp" alt="VyreVault Studios" class="h-10 w-auto" onerror="this.style.display='none';">
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Democratizing creative technology through AI-augmented development.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Platforms</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#platforms" class="hover:text-blue-400 transition">VyreAI</a></li>
+                        <li><a href="#platforms" class="hover:text-blue-400 transition">VORIX</a></li>
+                        <li><a href="#platforms" class="hover:text-blue-400 transition">FlowSpace</a></li>
+                        <li><a href="#platforms" class="hover:text-blue-400 transition">A9N</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#mission" class="hover:text-blue-400 transition">Mission</a></li>
+                        <li><a href="#downloads" class="hover:text-blue-400 transition">Downloads</a></li>
+                        <li><a href="#contact" class="hover:text-blue-400 transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Connect</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-blue-400 transition">GitHub</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-blue-400 transition">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 VyreVault Studios. Dreams for the Dreamless. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
